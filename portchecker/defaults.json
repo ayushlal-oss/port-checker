@@ -1,0 +1,23 @@
+{
+  "_help": "Packaged defaults. Override any key in ~/.port-checker/config.json (created by `ports init`).",
+  "pools": {
+    "app": {"start": 8100, "end": 8999, "section": "registered", "note": "your apps and dev servers; ports are never reused"}
+  },
+  "dynamic_range": [49152, 65535],
+  "loopback_only_sections": [],
+  "_loopback_help": "Sections whose services must bind 127.0.0.1 only; the audit flags any that listen wider. Opt in, e.g. [\"registered\"].",
+  "ignore": [
+    {"process": "System", "reason": "Windows kernel (SMB 445, NetBIOS 139)"},
+    {"process": "svchost.exe", "reason": "Windows services (RPC 135, 5040, 7680)"},
+    {"process": "lsass.exe", "reason": "Windows, dynamic RPC range"},
+    {"process": "wininit.exe", "reason": "Windows, dynamic RPC range"},
+    {"process": "services.exe", "reason": "Windows, dynamic RPC range"},
+    {"process": "spoolsv.exe", "reason": "Windows print spooler"},
+    {"process": "launchd", "reason": "macOS service launcher"},
+    {"process": "ControlCenter", "reason": "macOS AirPlay receiver (5000, 7000)"},
+    {"process": "rapportd", "reason": "macOS device-to-device service"},
+    {"process": "systemd-resolve", "reason": "Linux DNS stub (53)"},
+    {"process": "cupsd", "reason": "Linux/macOS printing (631)"},
+    {"process": "avahi-daemon", "reason": "Linux mDNS"}
+  ]
+}

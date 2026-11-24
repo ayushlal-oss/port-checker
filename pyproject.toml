@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "port-checker"
+version = "1.0.0"
+description = "Which port can I use, and who is on that one? Free/used ports, owners, a registry, a drift audit and a local dashboard."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+dependencies = []
+classifiers = [
+  "Environment :: Console",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: MacOS",
+  "Programming Language :: Python :: 3",
+  "Topic :: System :: Networking",
+  "Topic :: Utilities",
+]
+
+[project.scripts]
+ports = "portchecker.cli:run"
+
+[tool.setuptools]
+packages = ["portchecker"]
+
+[tool.setuptools.package-data]
+portchecker = ["defaults.json"]
